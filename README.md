@@ -135,15 +135,138 @@ f) Buka http://semerua09.pw/index.php/home
 
 ![21](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/8.png)
 
+#### 9. aktifkan mod rewrite agar urlnya menjadi http://semeruyyy.pw/home.diaktifkan mod rewrite agar urlnya menjadi http://semeruyyy.pw/home
 
 
+a) Menjalankan perintah a2enmod rewrite untuk mengaktifkan module rewrite.
+
+b) Restart apache dengan perintah service apache2 restart
+
+c) buat file .htaccess di semerua09.pw 
 
 
+![22](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/9_htaccess.png)
+
+d) Buka http://semeruyyy.pw/home
+
+![23](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/9.png)
 
 
+#### 10. Web http://penanjakan.semeruyyy.pw akan digunakan untuk menyimpan assets file yang memiliki DocumentRoot pada /var/www/penanjakan.semeruyyy.pw dan memiliki struktur folder sebagai berikut:
+
+/var/www/penanjakan.semeruyyy.pw
+
+/public/javascripts
+/public/css
+/public/images
+/errors
+
+a) Buat directory website
+
+b) Pindah ke direktori /etc/apache2/sites-available dan copy file default
+
+c) Edit file semerua09.pw
+
+![24](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/10_editfilepenanjakan.png)
+
+d) Aktifkan konfigurasi (a2ensite)
+
+e) Download file pendukung dengan wget
+
+f) Buka penanjakan.semerua09.pw 
+
+![25](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/10.png)
+
+#### 11. Pada folder /public dibolehkan directory listing namun untuk folder yang berada di dalamnya tidak dibolehkan.
+
+a) tambahkan file /etc/apache2/sites-available/penanjakan.semerua09.pw
 
 
+![26](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/11_editpenanjakan.png)
 
+b) buka penanjakan.semerua09.pw/public/css
+
+![27](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/11.png)
+
+
+#### 12. Untuk mengatasi HTTP Error code 404, disediakan file 404.html pada folder /errors untuk mengganti error default 404 dari Apache.
+
+a) Buat file penanjakan.semerua09.pw/.htaccess di Probolinggo
+
+![28](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/12_htaccess.png)
+
+b) Buka penanjakan.semerua09.pw/public/bebas 
+
+![29](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/12.png)
+
+#### 13. Untuk mengakses file assets javascript awalnya harus menggunakan url http://penanjakan.semeruyyy.pw/public/javascripts. Karena terlalu panjang maka dibuatkan konfigurasi virtual host agar ketika mengakses file assets menjadi http://penanjakan.semeruyyy.pw/js.
+
+a) Menjalankan perintah a2enmod rewrite untuk mengaktifkan module rewrite.
+
+b) Restart apache dengan perintah service apache2 restart
+
+c) edit file konfigurasi yang berada di folder /etc/apache2/sites-available 
+
+
+![30](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/13_penanjakan.png)
+
+d) Restart apache dengan perintah service apache2 restart
+
+e) Buka penanjakan/semerua09.pw/js
+
+![31](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/13.png)
+
+
+#### 14. sedangkan web http://naik.gunung.semeruyyy.pw sudah bisa diakses hanya dengan menggunakan port 8888. DocumentRoot web berada pada /var/www/naik.gunung.semeruyyy.pw.
+
+a) ganti port menjadi 8888 di naik.gunung.semerua09.pw 
+
+
+![32](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/14_8888.png)
+
+b) Tambahkan listen 8888
+
+![33](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/14_listen888.png)
+
+
+c) Buka naik.gunung.semerua09.pw:8888
+
+![34](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/14_hasil.png)
+
+#### 15. membuat web http://naik.gunung.semeruyyy.pw agar diberi autentikasi password dengan username “semeru” dan password “kuynaikgunung” supaya aman dan tidak sembarang orang bisa mengaksesnya. Saat Bibah mengunjungi IP PROBOLINGGO, yang muncul bukan web utama http://semeruyyy.pw melainkan laman default Apache yang bertuliskan “It works!”.
+
+
+a) edit naik.gunung.semerua09.pw
+
+![35](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/15_editnaikgunung.png)
+
+b)  Buka naik.gunung.semerua09.pw:8888
+
+
+![36](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/15_hasil.png)
+
+#### 16. Karena dirasa kurang profesional, maka setiap Bibah mengunjungi IP PROBOLINGGO akan dialihkan secara otomatis ke http://semeruyyy.pw.
+
+a) edit file default di probolinggo
+
+![37](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/16_ubahdefault.png)
+
+b) Buka ip probolinggo di browser
+
+
+![38](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/16_hasil.png)
+
+
+#### 17. Karena pengunjung pada /var/www/penanjakan.semeruyyy.pw/public/images sangat banyak maka semua request gambar yang memiliki substring “semeru” akan diarahkan menuju semeru.jpg.
+
+a) edit file penanjakan.semerua09.pw/.htaccess
+
+![39](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/17_htaccess.png)
+
+b) Buka penanjakan.semerua09.pw/public/images/
+
+
+![40](https://raw.githubusercontent.com/ImanAfandy/Jarkom_Modul2_Lapres_A09/main/Gambar/17_hasil.png)
 
 
 
